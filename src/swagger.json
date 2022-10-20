@@ -1,0 +1,232 @@
+{
+   "swagger": "2.0",
+   "info": {
+     "version": "1.0.0",
+     "title": "Swivel Assignment CRUD",
+     "description": "Employees CRUD Documentation",
+     "license": {
+       "name": "MIT",
+       "url": "https://opensource.org/licenses/MIT"
+     }
+   },
+   "host": "localhost:5000",
+   "basePath": "/api",
+   "tags": [
+     {
+       "name": "Employees",
+       "description": "API for employees"
+     }
+   ],
+   "schemes": [
+     "http"
+   ],
+   "consumes": [
+     "application/json"
+   ],
+   "produces": [
+     "application/json"
+   ],
+   "paths": {
+     "/employee": {
+       "post": {
+         "tags": [
+           "Employees"
+         ],
+         "summary": "Create new employee  in system",
+         "description": "Create new employee  in system",
+         "parameters": [
+           {
+             "name": "employee",
+             "in": "body",
+             "description": "Employee that we want to create",
+             "schema": {
+               "$ref": "#/definitions/PostEmployee"
+             }
+           }
+         ],
+         "produces": [
+           "application/json"
+         ],
+         "responses": {
+           "201": {
+             "description": "New employee is created",
+             "schema": {
+               "$ref": "#/definitions/PostEmployeeResponse"
+             }
+           }
+         }
+       },
+       "get": {
+         "tags": [
+           "Employees"
+         ],
+         "summary": "Get all employees in system",
+         "responses": {
+           "201": {
+             "description": "OK",
+             "schema": {
+               "$ref": "#/definitions/GetEmployeesResponse"
+             }
+           }
+         }
+       }
+     },
+     "/employee/{empId}": {
+       "parameters": [
+         {
+           "name": "empId",
+           "in": "path",
+           "required": true,
+           "description": "ID of employee that we want to update or delete",
+           "schema": {
+            "type": "string"
+          }
+         }
+       ],
+       "delete": {
+         "summary": "Delete employee with given ID",
+         "tags": [
+           "Employees"
+         ],
+         "responses": {
+           "201": {
+             "description": "Employee is deleted",
+             "schema": {
+               "$ref": "#/definitions/DeleteEmployeeResponse"
+             }
+           }
+         }
+       },
+       "put": {
+         "summary": "Update employee with give ID",
+         "tags": [
+           "Employees"
+         ],
+         "parameters": [
+           {
+             "name": "employee",
+             "in": "body",
+             "description": "Employee with new values of properties",
+             "schema": {
+               "$ref": "#/definitions/UpdateEmployee"
+             }
+           }
+         ],
+         "responses": {
+           "201": {
+             "description": "Employee is updated",
+             "schema": {
+               "$ref": "#/definitions/UpdateEmployeeResponse"
+             }
+           }
+         }
+       }
+     }
+   },
+   "definitions": {
+     "PostEmployee": {
+       "required": [
+         "first_name",
+         "last_name",
+         "email"
+       ],
+       "properties": {
+         "first_name": {
+           "type": "string"
+         },
+         "last_name": {
+           "type": "string"
+         },
+         "email": {
+           "type": "string"
+         },
+         "number": {
+           "type": "string"
+         },
+         "photo": {
+           "type": "string"
+         },
+         "id": {
+           "type": "string"
+         },
+         "gender": {
+           "type": "string"
+         }
+       }
+     },
+     "UpdateEmployee": {
+      "type": "object",
+       "required": [
+         "first_name",
+         "last_name",
+         "email",
+         "_id"
+       ],
+       "properties": {
+         "first_name": {
+           "type": "string"
+         },
+         "last_name": {
+           "type": "string"
+         },
+         "email": {
+           "type": "string"
+         },
+         "number": {
+           "type": "string"
+         },
+         "photo": {
+           "type": "string"
+         },
+         "id": {
+           "type": "string"
+         },
+         "_id": {
+           "type": "string"
+         },
+         "gender": {
+           "type": "string"
+         }
+       }
+     },
+     "GetEmployeesResponse": {
+       "type": "array",
+       "items": {
+         "$ref": "#/definitions/UpdateEmployee"
+       }
+     },
+     "PostEmployeeResponse": {
+      "type": "object",
+      "properties": {
+         "result": {
+            "$ref": "#/definitions/UpdateEmployee"
+         },
+         "message": {
+           "type": "string"
+         }
+       }
+     },
+     "DeleteEmployeeResponse": {
+      "type": "object",
+      "properties": {
+         "deletedEmployee": {
+            "$ref": "#/definitions/UpdateEmployee"
+         },
+         "message": {
+           "type": "string"
+         }
+       }
+     },
+      "UpdateEmployeeResponse": {
+      "type": "object",
+      "properties": {
+         "updatedEmployee": {
+            "$ref": "#/definitions/UpdateEmployee"
+         },
+         "message": {
+           "type": "string"
+         }
+       }
+     }
+   }
+ }

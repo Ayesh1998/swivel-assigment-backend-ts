@@ -1,11 +1,11 @@
-const express = require('express')
+import express from 'express'
 const router = express.Router()
-const EmployeeController = require('../controllers/employee.controller')
+const EmployeeControllers = require('../controllers/index.controller')
 
 //routes for employee data
-router.post('/employee', EmployeeController.addEmployee)
-router.delete('/employee/:empId', EmployeeController.deleteEmployee)
-router.put('/employee/:empId', EmployeeController.updateEmployee)
-router.get('/employee', EmployeeController.getEmployees)
+router.post('/employee', EmployeeControllers.addEmployeeController)
+router.delete('/employee/:empId', EmployeeControllers.deleteEmployeeController)
+router.put('/employee/:empId', EmployeeControllers.updateEmployeeController)
+router.get('/employee', EmployeeControllers.getEmployeesController)
 
 export = router;

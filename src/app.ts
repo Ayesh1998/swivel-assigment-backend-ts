@@ -4,10 +4,14 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import EmployeeRoutes from "./routes/employee.routes";
-require("dotenv").config();
+import { connectDb } from "./config/db.connection";
+import server from "./server";
+import swaggerUi from "swagger-ui-express"; 
+import swaggerDoc from "./swagger.json" ;
 
 //starting the express server
-const app = express();
+const app = server;
+connectDb();
 
 //adding middleware
 app.use(
@@ -19,19 +23,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("dev"));
 app.use("/api", EmployeeRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
-//accessing data in the .env file
-const uri = process.env.ATLAS_URI!;
-const port = process.env.PORT;
-const dbName = process.env.DATABASE;
 
-//creating the connection with mongoDB
-mongoose
-  .connect(uri,  { retryWrites: true, w: 'majority' })
-  .then(() => {
-    app.listen(port);
-    console.log(`Server is running on port: ${port}`);
-  })
-  .catch((error) => {
-    console.log(error);
-  });

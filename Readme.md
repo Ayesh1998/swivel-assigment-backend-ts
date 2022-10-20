@@ -1,8 +1,6 @@
 ## Backend API
 
-- API Documentation: - https://documenter.getpostman.com/view/8514807/VUqpsHVR
-
-## How to run the backend
+# How to run the backend
 
 - First clone the code
 - Then open command prompt inside the cloned code
