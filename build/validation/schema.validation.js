@@ -12,7 +12,7 @@ exports.postEmployeeSchema = joi_1.default.object({
     email: joi_1.default.string().email().required(),
     number: joi_1.default.string(),
     photo: joi_1.default.string(),
-    id: joi_1.default.string()
+    id: joi_1.default.string(),
 });
 exports.putEmployeeSchema = joi_1.default.object({
     first_name: joi_1.default.string().max(30).required(),
@@ -22,7 +22,7 @@ exports.putEmployeeSchema = joi_1.default.object({
     number: joi_1.default.string(),
     photo: joi_1.default.string(),
     id: joi_1.default.string(),
-    _id: joi_1.default.string().required()
+    _id: joi_1.default.string().required(),
 });
 exports.getAllEmployeesSchema = joi_1.default.array().items(joi_1.default.object({
     first_name: joi_1.default.string().max(30).required(),
@@ -32,5 +32,5 @@ exports.getAllEmployeesSchema = joi_1.default.array().items(joi_1.default.object
     number: joi_1.default.string(),
     photo: joi_1.default.string(),
     id: joi_1.default.string(),
-    _id: joi_1.default.string().required()
+    _id: joi_1.default.string().required(),
 }));

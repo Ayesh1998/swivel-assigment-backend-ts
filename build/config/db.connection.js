@@ -18,7 +18,7 @@ const config_1 = require("./config");
 const connectDb = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(`${config_1.config.mongo.url}`, {
-            retryWrites: true
+            retryWrites: true,
         });
         console.log(`MongoDb connected successfully`);
     }

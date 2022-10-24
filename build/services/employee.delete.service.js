@@ -15,8 +15,7 @@ const EmployeeModel = require("../models/employee.model");
 //Remove employee service
 const deleteEmployeeService = (id) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const deletedEmployee = yield EmployeeModel.findByIdAndRemove(id);
-        return deletedEmployee;
+        return yield EmployeeModel.findByIdAndRemove(id);
     }
     catch (error) {
         throw new Error(errors_1.ERRORS.DELETE_ERROR);

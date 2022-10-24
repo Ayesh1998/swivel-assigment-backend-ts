@@ -15,8 +15,7 @@ const EmployeeModel = require("../models/employee.model");
 //Get all employee service
 const getEmployeesService = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const employees = yield EmployeeModel.find().select({ "__v": 0, });
-        return employees;
+        return yield EmployeeModel.find().select({ "__v": 0, });
     }
     catch (error) {
         throw new Error(errors_1.ERRORS.GET_ERROR);

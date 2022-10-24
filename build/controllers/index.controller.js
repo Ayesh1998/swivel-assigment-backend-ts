@@ -8,5 +8,9 @@ const addEmployeeController = employee_post_controller_1.addEmployee;
 const getEmployeesController = employee_getAll_controller_1.getEmployees;
 const updateEmployeeController = employee_put_controller_1.updateEmployee;
 const deleteEmployeeController = employee_delete_controller_1.deleteEmployee;
-module.exports = { addEmployeeController, deleteEmployeeController, updateEmployeeController,
-    getEmployeesController };
+module.exports = {
+    addEmployeeController,
+    deleteEmployeeController,
+    updateEmployeeController,
+    getEmployeesController,
+};

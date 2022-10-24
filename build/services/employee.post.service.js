@@ -16,8 +16,7 @@ const EmployeeModel = require("../models/employee.model");
 const addEmployeeService = ({ first_name, last_name, email, number, gender, photo, id }) => __awaiter(void 0, void 0, void 0, function* () {
     const newEmployee = new EmployeeModel({ first_name, last_name, email, number, gender, photo, id });
     try {
-        const employee = yield newEmployee.save();
-        return employee;
+        return yield newEmployee.save();
     }
     catch (error) {
         throw new Error(errors_1.ERRORS.POST_ERROR);

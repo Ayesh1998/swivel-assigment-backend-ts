@@ -15,8 +15,7 @@ const EmployeeModel = require("../models/employee.model");
 //Update employee service
 const updateEmployeeService = ({ filter, options, data }) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const updatedEmployee = yield EmployeeModel.findOneAndUpdate(filter, data, options);
-        return updatedEmployee;
+        return yield EmployeeModel.findOneAndUpdate(filter, data, options);
     }
     catch (error) {
         throw new Error(errors_1.ERRORS.UPDATE_ERROR);
