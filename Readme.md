@@ -13,3 +13,8 @@
 # Documentation
 
 - Swagger Documentation - http://localhost:5000/api-docs/
+
+# Pipeline Documentation
+
+- Integrated with CircleCI pipeline
+- Can find the pipeline config file in .circleci/config.yml file in root directory
