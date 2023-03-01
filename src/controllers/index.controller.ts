@@ -1,7 +1,14 @@
-import { deleteEmployee } from "./employee.delete.controller";
+// import { deleteEmployee } from "./employee.delete.controller";
+
+import {
+  addEmployee,
+  deleteEmployee,
+  updateEmployee,
+} from "./employee.controller";
+
 import { getEmployees } from "./employee.getAll.controller";
-import { addEmployee } from "./employee.post.controller";
-import { updateEmployee } from "./employee.put.controller";
+
+// import { updateEmployee } from "./employee.put.controller";
 
 const addEmployeeController = addEmployee;
 const getEmployeesController = getEmployees;
